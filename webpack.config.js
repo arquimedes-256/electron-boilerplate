@@ -3,11 +3,14 @@ var path = require('path');
 
 var outputConfig = {
     path: __dirname + '/app/',
-    filename: 'app.js'
+    filename: '[name].js'
 };
 
 module.exports = {
-	entry: './app.ts',
+	entry: {
+        'app' : './app.ts', 
+        'background' : './background.js'
+    },
 	output: outputConfig,
     context: __dirname + '/src',
 	module: {
@@ -21,8 +24,7 @@ module.exports = {
                 loader: 'babel-loader',
                 exclude: /(node_modules|bower_components)/,
                 query: {
-                    presets: ['es2015'],
-                    plugins: ['transform-runtime']
+                    presets: ['es2015']
                 }
             },
             {

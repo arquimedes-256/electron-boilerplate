@@ -10,7 +10,9 @@ import createWindow from './helpers/window';
 
 // Special module holding environment variables which you declared
 // in config/env_xxx.json file.
-import env from './env';
+var jetpack = require('fs-jetpack');
+var appDir = jetpack.cwd(app.getAppPath());
+var env = appDir.read('env.json', 'json');
 
 var mainWindow;
 
@@ -38,7 +40,7 @@ app.on('ready', function () {
         height: 600
     });
 
-    mainWindow.loadURL('file://' + __dirname + '/app.html');
+    mainWindow.loadURL('file://' + app.getAppPath() + '/app.html');
 
     if (env.name === 'development') {
         mainWindow.openDevTools();

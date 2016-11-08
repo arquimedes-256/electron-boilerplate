@@ -26,20 +26,6 @@ gulp.task('webpack', function (callback) {
     });
 });
 
-gulp.task('bundle', function () {
-    return Promise.all([
-        bundle(srcDir.path('background.js'), destDir.path('background.js')),
-        bundle(srcDir.path('app.js'), destDir.path('app.js')),
-    ]);
-});
-
-gulp.task('less', function () {
-    return gulp.src(srcDir.path('stylesheets/main.less'))
-        .pipe(plumber())
-        .pipe(less())
-        .pipe(gulp.dest(destDir.path('stylesheets')));
-});
-
 gulp.task('environment', function () {
     var configFile = 'config/env_' + utils.getEnvName() + '.json';
     projectDir.copy(configFile, destDir.path('env.json'), { overwrite: true });
@@ -63,6 +49,4 @@ gulp.task('environment', function () {
 //    }));
 //});
 
-
-//gulp.task('build', ['bundle', 'less', 'environment']);
 gulp.task('build', [ 'environment', 'webpack']);

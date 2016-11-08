@@ -2,8 +2,7 @@
 // All stuff below is just to show you how it works. You can delete all of it.
 
 // Use new ES6 modules syntax for everything.
-import { remote } from 'electron'; // native electron module
-import { greet } from './hello_world/hello_world'; // code authored by you in this project
+var remote = require('electron').remote; // native electron module
 
 var os = require('os');
 var jetpack = require('fs-jetpack');
