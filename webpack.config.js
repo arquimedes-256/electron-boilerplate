@@ -9,7 +9,9 @@ var outputConfig = {
 module.exports = {
 	entry: {
         'app' : './app.ts', 
-        'background' : './background.js'
+        'background' : './background.js',
+        'helpers/context_menu': './helpers/context_menu.js',
+        'helpers/external_links': './helpers/external_links.js'
     },
 	output: outputConfig,
     context: __dirname + '/src',

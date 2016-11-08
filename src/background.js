@@ -40,7 +40,7 @@ app.on('ready', function () {
         height: 600
     });
 
-    mainWindow.loadURL('file://' + app.getAppPath() + '/app.html');
+    mainWindow.loadURL('file://' + app.getAppPath() + '/index.html');
 
     if (env.name === 'development') {
         mainWindow.openDevTools();

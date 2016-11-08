@@ -31,6 +31,10 @@ gulp.task('environment', function () {
     projectDir.copy(configFile, destDir.path('env.json'), { overwrite: true });
 });
 
+gulp.task('template', function () {
+    projectDir.copy('src/index.html', destDir.path('index.html'), { overwrite: true });
+});
+
 //gulp.task('watch', function () {
 //    var beepOnError = function (done) {
 //        return function (err) {
@@ -49,4 +53,4 @@ gulp.task('environment', function () {
 //    }));
 //});
 
-gulp.task('build', [ 'environment', 'webpack']);
+gulp.task('build', [ 'template', 'environment', 'webpack']);
